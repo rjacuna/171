@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{sagetex}
+
+\usepackage{euler}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+
+
+\usepackage[makeroom]{cancel}
+\usepackage{ulem}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\setmainfont[Mapping=tex-text]{Helvetica Neue LT Std 45 Light}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\A{\mathbb{A}}
+
+\usepackage[thinlines]{easytable}
+\begin{document}
+
+\begin{center}
+  171 --- 8
+
+  RJ Acuna
+
+  (862079740)
+\end{center}\vspace{1.618em}
+
+$\forall G, G': [G\times G',G\times G'] = [G,G]\times[G',G']$
+
+\uwave{pf. }
+
+Since, $\forall$ groups $Z$, $[Z,Z]$  is subgroup, so in particular it
+is a group. And the direct product of groups is a group by the
+operation taken componentwise. It follows that, $\forall$ groups
+$X,Y,$ $[X\times Y, X\times Y]$ and $[X,X]\times [Y,Y]$ have compatible
+group structures. Therefore, it is enough to show containment both
+ways.
+
+Let $(x_1,y_1)(x_2,y_2)(x_1,y_1)^{-1}(x_2,y_2)^{-1}\in$ $[X\times Y,
+X\times Y]$, and $(x_1x_2x_1^{-1}x_2^{-1},y_1y_2y_1^{-1}y_2^{-1}) \in
+[X,X]\times [Y,Y]$.
+\begin{align*}
+[X\times Y,
+X\times Y] \ni (x_1,y_1)(x_2,y_2)(x_1,y_1)^{-1}(x_2,y_2)^{-1} &=
+                                                 (x_1,y_1)(x_2,y_2)(x_1^{-1},y_1^{-1})(x_2^{-1},y_2^{-1})\\
+                                               &=
+                                                 (x_1x_2x_1^{-1}x_2^{-1},y_1y_2y_1^{-1}y_2^{-1})
+  \in [X,X]\times [Y,Y]\\
+\end{align*}
+Since they are both arbitrary elements the conclusion follows by
+letting $X = G$, and $Y = G'\quad \blacksquare$
+\subsection*{Section 15}
+
+\paragraph{13} Find both the center $Z(D_4)$ and the commutator
+subgroup $C$ of the group $D_4$ of symmetries of the square in table
+$8.12.$
+
+\uwave{pf.}
+
+Going along the slant diagonals of the table we can eliminate the
+diagonals that don't have symmetry about the main diagonal. Therefore,
+the only elements that commute with everything else are $\rho_0$ and
+$\rho_2$. So, $Z(D_4) =\{\rho_0,\rho_2\}.$
+
+We know that if $D_4/N$ is abelian then $[D_4,D_4]\leq N$.
+
+\paragraph{14}
+
+\paragraph{15}
+
+\paragraph{30}
+
+\paragraph{31}
+
+\paragraph{37}
+
+\subsection*{Section 35}
+
+\paragraph{13}
+
+\paragraph{14}
+
+\paragraph{18}
+
+\paragraph{19}
+
+\subsection*{Additional Exercise(s)}
+
+\paragraph{1} Prove that every nilpotent group is solvable.
+
+\paragraph{2} Determine the composition factors of $\Z_{48}$ and
+$\Z_{60}$ (with multiplicity).
+
+
+
+
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+%\usepackage{sagetex}
+
+\usepackage{euler}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+
+
+\usepackage[makeroom]{cancel}
+\usepackage{ulem}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\setmainfont[Mapping=tex-text]{Helvetica Neue LT Std 45 Light}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\A{\mathbb{A}}
+
+\usepackage{soul}
+\begin{document}
+
+\begin{center}
+  Chapter 1 --- Affine Algebraic Sets
+\end{center}\vspace{1.618em}
+
+Given an indexed family of sets $\{X_i\}_{i \in I}$, the Cartesian product is defined as,
+
+\[\prod_{i \in I} X_i := \{f:I \rightarrow \bigcup_{i\in I} X_i |
+  (\forall i\in I)(f(i) \in X_i)\}\].
+
+That is to say that each $i \in I$, has a corresponding value $f(i) \in
+X_i$. We define the projection maps as an indexed family of
+functions $\{\pi_j:\prod_{i \in I} X_i\rightarrow X_j; f \mapsto
+f(j)\}_{j\in I}$. For some element $\phi \in \prod_{i \in I} X_i$,
+${\pi}_k(\phi) = \phi(k)$ gives the component of $\phi$ in the $k$
+direction. These family of projection maps is also sometimes called the
+coordinate functions.
+
+Thinking about the coordinate functions we can give notation for the
+elements of the Cartesian product. Then $\psi \in \prod_{i \in I} X_i$, can
+be interpreted as tuple $(x_i)_{i\in I},$ where $x_j :=
+{\pi}_j(\psi)$ is the value of the $j^{th}$ coordinate of $(x_i)_{i\in I}$. In particular if $I$ is at most countable, then we can
+write $(x_i)_{i\in I}$ like $(x_1,x_2,x_3,\dots)$. When $I$ is finite
+with cardinality $n$, we write $(x_1,x_2,\dots,x_n)$ and say it is an
+$n$-tuple.
+
+If $X_i = X_j \forall i\neq j$, then we call the Cartesian product a
+Cartesian power and we label $X := X_i$ and write $\prod_{i\in I} X_i
+= X^I$. If $I$ is finite with cardinality $n$, we write $X^n$.
+
+An operation on a set $S$ is a map $*:S^n\rightarrow S$. The size $n$
+of the input vector is the arity of the operation. We give special
+names to the first few naturals 1, 2, and 3-arity operations are
+called unary, binary, and ternary operations respectively. For
+operations with arity $n$ we say they are $n$-ary.
+
+Now, 0 arity operations are special, they are called nullary
+operations. First we need to give meaning to $S^0$. We know the only set with cardinality $0$ is the empty set, so $I=
+\emptyset $. Plugging in we see,
+
+\[X^0 = \{f:\emptyset \rightarrow \bigcup_{i\in \emptyset} X_i | (\forall
+  i\in \emptyset)(f(i) \in X_i)\}\]
+
+First let us examine the condition, $(\forall
+  i\in \emptyset)(f(i) \in X_i)$. We can see there is nothing in the
+  empty set, it follows that the statement does not impose any
+  restrictions on $f$.
+
+  Now, $\bigcup_{i\in \emptyset} X_i =
+  \emptyset \implies \forall f\in X^0: f:\emptyset \rightarrow
+  \emptyset$. Since functions are subsets of the Cartesian product of
+  their domain and range. And, $\emptyset^2 = \emptyset \implies \forall
+  f \in X^0: f = \emptyset \implies X^0 = \{\emptyset\}$. As a consequence, we get that $X^0 =
+  \{()\}$, where $()$ is the empty tuple.
+
+So,$|X^0| = 1$. Therefore, all nullary
+operations $S^0\rightarrow S$ are constant functions with values in
+$S$. So, the set of all nullary operations on $S$ is in natural
+bijection with $S$.
+
+We define the unary operation $+ 1: \N\rightarrow \N; n \mapsto n\cup
+\{n\}$. As notation we write $n + 1$ for $+ 1(n)$. The natural numbers $\N$ is the set that satisfies the Peano axioms,
+
+\[(I) 1 := \emptyset \in \N\]
+\[(II)(\forall x \in \N)(x + 1\in \N) \]
+\[(III)(\forall x,y \in \N)(x = y \iff x + 1 = y + 1)\]
+\[(III)(\forall z \in \N)(z + 1 \neq 1)\]
+
+In most books, people when people drop the adjective for the arity of
+the operation it means that they are speaking of a binary
+operation. We will adopt said convention.
+
+In Algebra when we talk about an algebraic structure we are talking
+about a pair $\langle S,\bullet\rangle$, where $S$ is either a set,
+and $\bullet$ is a $n$-ary operation.
+
+$\langle \N, u \rangle$, $u:\N^0\rightarrow \N; u() = 1$, is one of
+the simple structure in the sense that the arity of $u$ is less than $1$. In
+that sense $\N$ is called a pointed set with base point $1$.
+
+$\langle \N, + 1 \rangle$, is also simple. In
+that sense $\N$ is called an unary system.
+
+$\langle \N, + \rangle$, $\langle \N,\cdot \rangle$, and $\langle
+\N, n^m \rangle$ are algebraic structures. Usually, if it is understood
+from context, we will refer to all of them by their underlying set
+$\N$. An algebraic structures with respect
+to an operation is called a magma. If the operation is associative,
+$(a\bullet b)\bullet c = a \bullet (b\bullet c)$, then it is called a
+semigroup. All of them are semigroups.
+
+In an algebraic structure $\langle S,\bullet \rangle$. If,
+\[(\exists e \in S)(\forall y \in S)(e\bullet y = y = y\bullet e)\]
+
+then we say $S$ has an identity element $e$, with respect to the
+operation $\bullet$.
+
+Neither $\langle \N,+ \rangle$, nor $\langle \N, n^m \rangle$ have
+identity elements, so they are just semigroups. However, $1$ is the
+multiplicative identity of $\N$. A semigroup with an identity element
+is called a monoid. So, $\N$ is a monoid with respect to
+multiplication.
+
+
+
+
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

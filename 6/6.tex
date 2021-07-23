@@ -1,0 +1,491 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{sagetex}
+
+\usepackage{euler}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+
+
+\usepackage[makeroom]{cancel}
+\usepackage{ulem}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\setmainfont[Mapping=tex-text]{Helvetica Neue LT Std 45 Light}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\A{\mathbb{A}}
+
+\usepackage[thinlines]{easytable}
+\begin{document}
+
+\begin{center}
+  171 --- 6
+
+  RJ Acuna
+
+  (862079740)
+\end{center}\vspace{1.618em}
+
+
+% \subsection*{Section 10}
+
+% \paragraph{35*}
+
+\subsection*{Section 11}
+
+\paragraph{16} Are the groups $\Z_{2}\times\Z_{12}$ and
+$\Z_4\times\Z_6$ isomorphic? Why or why not?
+
+\uwave{slu.}
+\begin{align*}
+  \Z_{2}\times\Z_{12} &\simeq \Z_{2}\times
+                        \Z_{4}\times\Z_{3} \text{ Since
+                        gcd$(4,3) = 1$} \\
+                      &\simeq \Z_{4}\times
+                        \Z_2\times\Z_{3} \text{ By
+                        rearrangement} \\
+                      &\simeq \Z_4\times\Z_6\hspace{2.4em} \text{ Since
+                        gcd $(2,3) = 1$}\quad \blacklozenge
+\end{align*}
+
+\paragraph{18} Are the groups $\Z_8\times \Z_{10} \times \Z_{24}$ and
+$\Z_4\times \Z_{12} \times \Z_{40}$ isomorphic? Why or why not?
+
+\uwave{slu.}
+\begin{align*}
+\Z_8\times \Z_{10} \times \Z_{24} &\simeq \Z_8\times \Z_2\times \Z_{5}
+                                    \times \Z_{8}\times\Z_{3}\quad \text{
+                                    Since gcd$(2,5)=1$ and gcd$(8,3)=1$}\\
+ &\simeq \Z_8\times \Z_2\times \Z_{40}\times\Z_{3} \text{
+   Since gcd$(8,5)=1$}\\
+   &\simeq \Z_8\times \Z_2 \times\Z_{3}\times \Z_{40} \text{ By
+     rearrangement}\\
+                                  &\text{and}\\
+\Z_4\times \Z_{12} \times \Z_{40} &\simeq \Z_4\times \Z_4\times \Z_{3}
+                                    \times \Z_{40}\quad \text{
+                                    Since gcd$(4,3)=1$}\\
+  &\text{but}\\
+\text{lcm}(8,2)=8 \text{ and } \text{lcm}(4,4)=4 &\implies |\Z_8\times
+\Z_2|=8 \text{ and } |\Z_4\times \Z_4|=4 \\ &\implies
+                                              \Z_8\times \Z_2 \not\simeq \Z_4\times\Z_4
+\end{align*}
+
+So, no $\blacklozenge$
+
+\paragraph{24} Are the groups $\Z_4\times \Z_{18} \times \Z_{15}$ and
+$\Z_3\times \Z_{36}\times \Z_{10}$ isomorphic? Why or why not?
+
+\uwave{slu.}
+\begin{align*}
+  4=2^2,18=2\cdot 3^2, 15 = 3\cdot 5&\text{ and }3 = 3, 36 = 2^2\cdot3^2,10
+                                      = 2\cdot 5 \\ &\implies \\
+  \Z_4\times \Z_{18} \times \Z_{15} &\simeq  \Z_{2^2}\times \Z_{2}
+                                      \times \Z_{3^2} \times \Z_{3}\times \Z_{5}\\
+                                      &\simeq  \Z_{2^2}\times \Z_{3}
+                                        \times \Z_{3^2} \times \Z_{2}\times \Z_{5} \\
+  &\simeq  \Z_{3}\times \Z_{2^2}
+    \times \Z_{3^2} \times \Z_{2}\times \Z_{5} \\
+                                    &\simeq \Z_3\times \Z_{36}\times \Z_{10}\\
+\end{align*}
+
+So, yes $\blacklozenge$
+
+% \paragraph{29*}
+% \paragraph{39*}
+% \paragraph{40*}
+% \paragraph{41*}
+% \paragraph{42*}
+
+% \paragraph{46**}
+\newpage
+\paragraph{49} Find a counterexample of Exercise $47$ with the
+hypotheses of that $G$ is abelian omitted.
+
+\uwave{slu.}
+
+\begin{sagesilent}
+  from sage.combinat.permutation import *
+  Permutations.options.latex='cycle'
+  S_3 = [Permutation(x)  for x in Permutations(3).list()]
+  S_3_latex = [latex(x) for x in S_3]
+  squared_latex = ["%s^2 = %s\n"%(latex(x),latex(x.right_action_product(x)))
+                    for x in S_3]
+  squared_latex2 = [x.replace("()","\\iota") for x in squared_latex[1:]]
+  squares = [x for x in S_3 if x.right_action_product(x) == S_3[0]]
+  squares_latex = ["\\enskip%s"%(latex(x)) for x in squares]
+  a = squares[1].left_action_product(squares[2])
+\end{sagesilent}
+
+$$S_3 = \left\{\iota,\sagestr{", ".join(S_3_latex[1:])}\right\}$$
+If you square each element you get
+$$\sagestr{", ".join(squared_latex2)}.$$
+Then the set of squares and $\iota$ is, $S = \left\{\iota, \sagestr{", ".join(squares_latex[1:])}\right\}$.
+
+$\sage{squares[1]}\sage{squares[2]} = \sage{a}\not\in S
+\implies S$ is not closed $\implies S$ is
+not a subgroup of $S_4 \quad \triangleright\triangleleft$
+
+I did the previous by brute force with the computer.
+
+However, I found the smallest example up to isomorphism, consider $D_3$:
+
+\begin{TAB}(e,0.5cm,0.5cm){|c|c:c:c:c:c:c|}{|c|c:c:c:c:c:c|}
+  $D_3$&1&A&B&C&D&E\\
+  1&1&A&B&C&D&E\\
+  A&A&B&1&D&E&C\\
+  B&B&1&A&E&C&D\\
+  C&C&E&D&1&B&A\\
+  D&D&C&E&A&1&B\\
+  E&E&D&C&B&A&1
+\end{TAB}
+
+$\implies S = \{1,C,D,E\} \land CD=B \not\in S \implies
+S\not\leq D_3 \triangleright\triangleleft$
+
+Ok, this is annoying. $D_3 \simeq S_3$... Looking at the table
+I've realized they are the same thing. I wanted to consider a smaller
+example so I googled what is the smallest non-abelian group. So, I had
+already found the smallest example.
+
+% \paragraph{50**}
+
+\subsection*{Section 13}
+
+In Exercises 1 through 15, determine whether the given map $\phi$ is
+a homomorphism. [\textit{Hint:} the straightforward way to proceed is
+to check whether $\phi(ab) = \phi(a)\phi(b)$ for all $a$ and $b$ in
+the domain of $\phi$. However, if we should happen to notice that
+$\phi^{-1}[\{e^\prime\}]$ is not a subgroup whose left and right
+cosets coincide, or that $\phi$ does not satisfy the properties given
+in Exercises $44$ or $45$ for finite groups, then we can say at once
+that $\phi$ is not a homomorphism.]
+
+% \paragraph{1**}
+
+\paragraph{2} Let $\phi:\R\rightarrow \Z$ under addition be given by
+$\phi(x) =$ the greatest integer $\leq x.$
+
+\uwave{slu.} No,  $\phi(1.5 + 1.5) = \phi(3) = 3 \neq 2 = 1 + 1 =
+\phi(1.5) + \phi(1.5) \quad \blacklozenge$
+
+% \paragraph{3**}
+% \paragraph{4**}
+% \paragraph{5**}
+% \paragraph{6**}
+% \paragraph{7**}
+% \paragraph{8**}
+% \paragraph{9**}
+% \paragraph{10**}
+% \paragraph{11**}
+
+\paragraph{12} Let $M_n$ be the additive group of all $n\times n$
+matrices with real entries, and let $\R$ be the additive group of real
+numbers. Let $\phi(A) = \det(A)$
+
+\uwave{slu.} No, $\det\left(\begin{pmatrix}1&0\\
+  0&0\end{pmatrix}+\begin{pmatrix}0&0\\ 0&1\end{pmatrix}\right)=
+\det\left(\begin{pmatrix}1&0\\ 0&1\end{pmatrix}\right) = 1\neq 0 = 0+0 = \det\left(\begin{pmatrix}1&0\\ 0&0\end{pmatrix}\right)+\det\left(\begin{pmatrix}0&0\\ 0&1\end{pmatrix}\right) \quad \blacklozenge$
+
+\newpage
+\paragraph{13} Let $M_n$ and $R$ be as in Exercise $12$. Let
+$\phi(A)=\text{tr}(A)$ for $A\in M_n$, where the \textbf{trace} of $A$
+is the sum of the elements on the main diagonal of $A$ from the upper-left to the lower-right corner.
+
+\uwave{slu.} Yes,
+\begin{align*}
+  \text{tr}(A+B) &= \text{tr}((A_{ij})+(B_{ij}))\\
+                 &= \text{tr}((A_{ij}+B_{ij})) \\
+                 &= \sum_{i=1}^n A_{ii} + B_{ii}\\
+                 &= \sum_{i=1}^n A_{ii} + \sum_{i=1}^n B_{ii}\\
+                 &= \text{tr}((A_{ij})) + \text{tr}((B_{ij})) \\
+                 &= \text{tr}(A) + \text{tr}(B) \quad \blacklozenge
+\end{align*}
+
+\paragraph{14} Let $GL(n,\R)$ be the multiplicative group of
+invertible $n\times n$ matrices, and let $\R$ be the additive group of
+real numbers. Let $\phi: GL(n,\R)\rightarrow \R$ be given by $\phi(A)
+= \text{tr}(A),$ where $\text{tr}(A)$ is defined as in Exercise $13.$
+
+\uwave{slu.} No,
+\begin{align*}
+  \text{tr}\left(\begin{pmatrix}1&0\\
+  0&0\end{pmatrix}\begin{pmatrix}0&0\\ 0&1\end{pmatrix}\right) = \text{tr}\left(\begin{pmatrix}0&0\\
+  0&0\end{pmatrix}\right)
+                                 = 0 \neq 2
+                                 = 1 + 1
+                                 = \text{tr}\left(\begin{pmatrix}1&0\\
+  0&0\end{pmatrix}\right) + \text{tr}\left(\begin{pmatrix}0&0\\
+  0&1\end{pmatrix}\right)\quad \blacklozenge
+\end{align*}
+% \paragraph{15**} ...
+
+
+In Exercises $16$ through $24$, compute the indicated quantities for
+the given homomorphism $\phi$. (See Exercise $46.$)
+
+% \paragraph{16**}
+% \paragraph{17**}
+% \paragraph{18**}
+% \paragraph{19**}
+% \paragraph{20**}
+
+\paragraph{21} Ker$(\phi)$ and $\phi(14)$ for $\phi: \Z_{24}\rightarrow
+S_8$ where $\phi(1) = (2, 5)(1, 4, 6, 7)$
+
+\begin{sagesilent}
+  from sage.combinat.permutation import *
+  Permutations.options.latex='cycle'
+  s0 = Permutation('(2, 5)(1, 4, 6, 7)')
+  def pow_perm(x,n):
+      b = x
+      c = 1
+      while (c < n):
+          b = x.right_action_product(b)
+          c += 1
+      return b
+
+  sps = ["\\phi(%s) = [%s]^%s = %s"%(n,latex(s0),n,latex(pow_perm(s0,n)).replace("()","\\iota")) for n in range(1,5)]
+  s14 = pow_perm(s0,14)
+\end{sagesilent}
+
+\uwave{slu.}
+$$\sagestr{", ".join(sps[1:])}.$$
+We can see from the computation that, multiples of $4$ give us the
+identity.
+So, Ker$(\phi) = \{0,4,8,12,16,20\}$
+\begin{align*}
+\phi(14) &= [\sage{s0}]^{14} = [\sage{s0}]^{12+2}\\
+ &=([\sage{s0}]^4)^3 [\sage{s0}]^2 =
+   \iota^3[\sage{s0}]^2 = \sage{s14}\quad \blacklozenge
+\end{align*}
+
+% \paragraph{22**}
+% \paragraph{23**}
+% \paragraph{24**}
+% \paragraph{25**}
+% \paragraph{26**}
+% \paragraph{27**}
+
+In Exercises $33$ through $43$, give an example of a nontrivial
+homomorphism $\phi$ for the given groups, if an example exists. If no
+such homomorphism exists explain why that is so. You may use
+Excercises $44$ and $45$.
+
+% \paragraph{33**}
+% \paragraph{34**}
+% \paragraph{35**}
+% \paragraph{36**}
+% \paragraph{37**}
+% \paragraph{38**}
+% \paragraph{39**}
+% \paragraph{40**}
+\newpage
+\paragraph{41} $\phi: D_4\rightarrow S_3$
+
+\uwave{slu.}
+
+From problem $49$ we can see $S_3\simeq D_3$
+\begin{align*}
+  D_n &= \langle r,s|r^n=s^2 = e, srs = r^{-1}\rangle\\
+  &\implies\\
+  D_4 &= \langle r,s|r^4=s^2 = e, srs = r^{-1}\rangle\\
+  &\text{and}\\
+  D_3 &= \langle a,b|a^3=b^2 = e', bab = a^{-1}\rangle\\
+\end{align*}
+So, let's check,
+$$\nu(r)=a \implies \nu(e) = \nu(r^4) = \nu(r)^4 = \nu(r)^3\nu(r)
+= a^3\phi(r) =e'^3a = a \neq e'$$.
+So, $\nu(r)\neq a$. Check,
+$$\nu(r)=b \implies \nu(e) = \nu(r^4) = \nu(r)^4 = b^4
+= (b^2)^2 =e'^2 = e'$$.
+So, $ \nu(s) b \nu(s) = \nu(s)\nu(r)\nu(s)=\nu(srs)=\nu(r^{-1}) =\nu(r)^{-1} =
+b^{-1} = b$. So, $\nu(s) = e'$.
+
+Since, all the elements of $D_4$ are, $e, r,r^2,r^3,
+s,sr,sr^2,sr^3$. Then define $\psi$ by,
+
+$\psi(e) = e'$,
+
+$\psi(r) = b$,
+
+$\psi(r^2) = b^2 = e'$,
+
+$\psi(r^3) = be' = b$,
+
+$\psi(s) = e'$,
+
+$\psi(sr) = e'b = b$,
+
+$\psi(sr^2) = e'b^2 = e'$,
+
+$\psi(sr^3) = e'b = b$,
+
+Now construct an isomorphism $\mu$ from $D_3$ to $S_3$ like so,
+
+$\mu(e)  = \iota$,
+
+$\mu(a)  = (1 2 3)$,
+
+$\mu(a^2)  = (1 3 2)$
+
+$\mu(b)  = (2 3)$
+
+$\mu(ba)  = (1 2)$
+
+$\mu(ba^2)  = (1 3)$.
+
+$\mu$ is a bijection from $D_3$ to $S_3$. It satisfies the
+homomorphism property by construction, because I just looked at the
+tables of $D_3$ and $S_3$ to write it.
+
+Now, put $\phi = \psi\circ\mu$
+which gives,
+
+$\phi(r) = \phi(r^3) = \phi(sr) = \phi(sr^3) = (2 3)$,
+$\phi(e) = \phi(r^2) = \phi(s) = \phi(sr^2) =e'$
+
+Which is nontrivial $\blacklozenge$
+
+% \paragraph{42**}
+\newpage
+\paragraph{47} Show that any group homomorphism $\phi: G\rightarrow
+G^\prime$ where $|G|$ is a prime must either be the trivial
+homomorphism or a one-to-one map.
+
+\uwave{pf.}
+
+$|G|$ is prime $\implies$ $G$ has no proper nontrivial subgroups.
+
+Ker$(\phi) \leq G \implies$ Ker$(\phi) = \{e\}\lor$ Ker$(\phi) = G$
+
+Ker$(\phi) = \{e\} \implies \phi$ is injective.
+
+Ker$(\phi) = G \implies \phi$ is trivial $\quad \blacksquare$
+
+\paragraph{49} Show that if $G$, $G'$, and $G^{''}$ are groups and if
+$\phi: G\rightarrow G'$ and $\gamma:G'\rightarrow G^{''}$ are
+homomorphisms, then the composite map $\gamma\phi:G \rightarrow
+G^{''}$ is a homomorphism.
+
+\uwave{pf.}
+
+WTS $\forall x,y \in G: \gamma\phi(xy) = \gamma\phi(x)\gamma\phi(y)$
+
+Let $x,y \in G$ be arbitrary.
+
+Compute,
+\begin{align*}
+  \gamma\phi(xy) &= \gamma(\phi(xy))\\
+                 &= \gamma(\phi(x)\phi(y)) \\
+                 &= \gamma(\phi(x))\gamma(\phi(y))\\
+                 &= \gamma\phi(x)\gamma\phi(y)
+\end{align*}
+% \paragraph{55*}
+
+\subsection*{Additional Exercises}
+
+\paragraph{1} Let $\phi: G\rightarrow G^\prime$ be a homomorphism of
+groups and suppose $g\in G$ is an element of finite order.
+
+(a) Prove that $|\phi(g)|$ divides $|g|$.
+
+\uwave{pf.}
+
+Let $|g| = n$, $g^n = e\implies \phi(g)^n = \phi(g^n) = g(e) = e'$.
+
+Now,$\phi(g)^n = e'$ doesn't mean $|\phi(g)| = n$.
+
+But, it does mean that $\exists k,m\in\Z^+: n = mk \land g^m = e'$, where $m$ is the
+order of $\phi(g)$.
+
+So, the order of $\phi(g)$ divides the
+order of $g\quad \blacksquare$.
+
+(b) Prove that $|\phi(g)| = |g|$ if $\phi$ is injective.
+
+\uwave{pf.}
+
+$\phi(g)^n = \phi(g^n) = \phi(e) = e'$.
+
+Since, $\phi$ is injective no power smaller than $n$ maps $g^n$ to
+$e'$ under $\phi$.
+
+So, the smallest power you need to raise $\phi(g)$ to get $e'$ is $n.$
+
+So, $\phi$ is a bijection. So $|\phi(g)| = |g|\quad \blacksquare$
+
+
+\paragraph{2**} Let $G$ and $G^\prime$ be groups. Prove that a
+homomorphism $\phi: G\rightarrow G^\prime$ is an isomorphism if and
+only if there exists some homomorphisms $\psi:G^\prime\rightarrow G$
+such that $\psi\circ \phi = \text{id}_G$ and $\phi\circ \psi = \text{id}_{G^\prime}$.
+
+\uwave{pf.}
+
+$(\implies)$ Ass. $\phi:\langle
+G,\bullet\rangle\rightarrow \langle G',* \rangle$ is an isomorphism
+
+Then $\phi$ is bijective, and
+
+$$\forall x,y \in G: \phi(x\bullet y) =\phi(x)*\phi(y)$$
+
+$\phi$ is bijective, so it has an inverse mapping $\phi^{-1}$.
+
+That is $\phi\circ \phi^{-1} = 1_G$ and $\phi^{-1}\circ \phi = 1_G'$
+
+So, for all $x,y\in G$ we can write $x = \phi^{-1}(\phi(x))$ and $y =
+\phi^{-1}(\phi(y))$. Let $\phi(x) = x'$ and  $\phi(y) = y'$.
+\begin{align*}
+  \phi^{-1}(\phi(x\bullet y)) &=\phi^{-1}(\phi(x)*\phi(y))\\
+  x\bullet y &= \phi^{-1}(\phi(x)*\phi(y))\\
+  \phi^{-1}(\phi(x))\bullet \phi^{-1}(\phi(y)) &=
+                                                 \phi^{-1}(\phi(x)*\phi(y))\\
+  \phi^{-1}(x')\bullet \phi^{-1}(y') &= \phi^{-1}(x'*y')
+\end{align*}
+
+So, $\phi^{-1}$ satisfies the homomorphism property, thus is a
+homomorphism as in the theorem.
+
+$(\impliedby)$ Ass. $\exists$ homomorphisms $\phi,\psi: \phi\circ\psi = 1_{G'}$ and
+$\psi\circ\phi = 1_G$
+
+$\psi\circ\phi = 1_G \implies \psi = \phi^{-1} \implies \phi$ is
+bijective.
+
+$\phi$ is a homomorphism, so $\phi$ is an isomorphism.
+
+Thus, proven. This holds for binary algebraic structures, so it holds
+for groups.
+
+$\blacksquare$
+
+\paragraph{3} Show that $SL_n(\R)$ is a normal subgroup of $GL_n(\R)$
+for all $n \in \Z^+$.
+
+\uwave{pf.}
+
+The determinant det:$GL_n(\R) \rightarrow \R^*$ is a
+homomorphism.
+
+$\det^{-1}[\{1\}] = SL_n(\R)$ by definition of $SL_n(\R)$.
+So, Ker(det)=$SL_n(\R)$.
+
+By $13.20$ $SL_n(\R)$ is normal for each $n \in \Z^+ \quad \blacksquare$
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

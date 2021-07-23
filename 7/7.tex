@@ -1,0 +1,313 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+%\usepackage{sagetex}
+
+\usepackage{euler}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+
+
+\usepackage[makeroom]{cancel}
+\usepackage{ulem}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\setmainfont[Mapping=tex-text]{Helvetica Neue LT Std 45 Light}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\A{\mathbb{A}}
+
+\usepackage[thinlines]{easytable}
+\begin{document}
+
+\begin{center}
+  171 --- 7
+
+  RJ Acuna
+
+  (862079740)
+\end{center}\vspace{1.618em}
+
+
+\subsection*{Section 14}
+
+In Exercises $1$ through $8$, find the order of the given factor
+group.
+
+\paragraph{2} $(\Z_4\times \Z_{12})/(\langle 2 \rangle\times \langle 2  \rangle)$
+
+\uwave{slu.}
+
+$2\cdot 2 = 4 \equiv 0 \text{ (mod $4$)} \implies |2| = 2$ in $\Z_4$
+
+$2\cdot 6 = 12 \equiv 0 \text{ (mod $12$)} \implies |2| = 6$ in $\Z_4$
+
+$\implies |\langle 2 \rangle\times \langle 2  \rangle| = 2\cdot 6 =
+12 \quad \lozenge$
+
+$|\langle 2 \rangle\times \langle 2  \rangle|
+12 \land |\Z_4\times \Z_{12}| = 4\cdot 12 \implies |(\Z_4\times
+\Z_{12})/(\langle 2 \rangle\times \langle 2  \rangle)| = 4$
+
+\paragraph{6} $(\Z_{12}\times \Z_{18})/\langle (4,3) \rangle$
+
+$4\cdot 3 = 12 \equiv 0 \text{ (mod $12$)} \implies |4| = 3$ in $\Z_{12}$
+
+$3\cdot 6 = 18 \equiv 0 \text{ (mod $12$)} \implies |3| = 6$ in $\Z_{18}$
+
+$\text{lcm}(3,6) = 6 \implies |\langle (4,3) \rangle| =  6$
+
+$|\langle (4,3) \rangle| = 6 \land |\Z_{12}\times \Z_{18}| = 12\cdot
+18 = 2\cdot 6\cdot 18 \implies |(\Z_{12}\times \Z_{18})/\langle (4,3)
+\rangle| = 2\cdot 18 = 36 \quad \lozenge$
+
+\vspace{1em}
+
+In Exercises $9$ through $15$, give the order of the element in the
+factor group.
+\paragraph{10} $26 + \langle 12 \rangle$ in $\Z_{60}/\langle 12
+\rangle$
+
+\uwave{slu.}
+
+$26 = 12\cdot 2 + 2 \implies 26 + \langle 12 \rangle = 2 + \langle 12
+\rangle$
+
+$2\cdot 6 = 12 \implies (2+\langle 12 \rangle)^6 = 2\cdot 6 +\langle
+12 \rangle  = 12 +\langle 12 \rangle = \langle 12 \rangle \implies
+|26+\langle 12 \rangle| = 6$ in $\Z_{60}/\langle 12
+\rangle\quad \lozenge$
+
+\paragraph{14} $(3,3)+\langle (1,1) \rangle$ in $(\Z_4\times \Z_4)/\langle (1,1) \rangle$
+
+\uwave{slu.}
+
+$(3,3) = 3(1,1) \implies (3,3)\in \langle (1,1) \rangle \implies
+(3,3)+\langle (1,1) \rangle = \langle (1,1) \rangle $
+
+$\implies |(3,3) +
+\langle (1,1) \rangle| = 1$ in $(\Z_4\times \Z_4)/\langle (1,1)
+\rangle \quad \lozenge$
+
+\paragraph{16} Compute $i_{\rho_1}[H]$ for the subgroup $H=
+\{\rho_0,\mu_1\}$ of the group $S_3$ of Example $8.7.$
+
+\uwave{slu.}
+
+$\rho_1\rho_0\rho_1^{-1}=\rho_1\rho_1^{-1} = \rho_0$
+
+and
+
+$\rho_1\mu_1\rho_1^{-1} = \rho_1\mu_1\rho_2 = \mu_3\rho_2 = \mu_2$
+
+so, $i_{\rho_1}[H] = \{\rho_0,\mu_2\} \quad \lozenge$
+
+\paragraph{24} Show $A_n$ is a normal subgroup of $S_n$ and compute
+$S_n/A_n;$ that is find a known group to which $S_n/A_n$ is
+isomorphic.
+
+\uwave{pf. } $\quad |S_n| = n!\land |A_n| = \frac{n!}{2} \implies
+|S_n/A_n| = \frac{n!}{\frac{n!}{2}} = 2 \implies S_n/A_n \simeq \Z_2$
+$\quad \blacksquare$
+
+\paragraph{26} Prove that the torsion subgroup $T$ of an abelian group
+$G$ is a normal subgroup of $G$, and that $G/T$ is torsion free.
+
+\uwave{pf. }
+
+Note that $T\trianglelefteq G \iff \forall g\in G,t \in T, gtg^{-1}
+\in T.$
+
+$G$ is abelian, and $T\leq G$. Let $g\in G,$and $t\in T$, then
+$gtg^{-1} = gg^{-1}t = et = t\in T\implies T\trianglelefteq G$
+
+Suppose for the sake of contradiction $\exists g \in G,g\not\in T,
+n\in\Z: g\neq e \land (gT)^n = T$.
+
+$ (gT)^n = g^n T = T \implies g^n = e \implies |g| = n$
+
+Which is a contradiction, because $T$ contains all of the elements of
+$G$ that have finite order.
+
+So, the only element of $G/T$ of finite order is the coset $T$.
+
+Therefore, $G/T$ is torsion-free $\quad \blacksquare$
+
+
+
+\paragraph{30} Let $H$ be a normal subgroup of a group $G$, and let $m
+= (G:H)$. Show that $a^m\in H$ for every $a\in G.$
+
+\uwave{pf.} $\quad H\trianglelefteq G \land m = (G:H)=|G/H|\in \Z \implies \forall aH\in G/H,\quad (aH)^m = a^m H
+= H \implies a^m \in H \quad \blacksquare$
+
+\paragraph{34} Show that if a finite group $G$ has exactly one
+subgroup $H$ of a given order, then $H$ is a normal subgroup of $G$.
+
+\uwave{pf.}
+
+WTS $\quad|G| = m \in \Z \land (\exists! H\leq G \land n\in\Z): |H| = n
+\implies H\trianglelefteq G.$
+
+WTS $\quad \forall g\in G, \forall h\in H,\enskip ghg^{-1} \in H \iff
+H\trianglelefteq G$
+
+Let $g\in G$, and $h\in H$, then $(ghg^{-1})^n =
+ghg^{-1}ghg^{-1}\cdots ghg^{-1} = ghehehe\cdots hehg^{-1} = gh^ng^{-1}$.
+
+$|H|=n \implies h^n = e \implies (ghg^{-1})^n = e \implies ghg^{-1} \in H$ since $\exists!
+H\leq G: |H| = n\quad \blacksquare$
+
+\subsection*{Section 15}
+
+In Exercises $1$ through $12$, classify the given group according to
+the fundamental theorem of finitely generated abelian groups.
+
+4. $(\Z_4\times \Z_8)/\langle (1,2) \rangle$
+
+$1\cdot 4 = 4 \equiv 0 \text{ (mod $4$)}\implies |1| = 4$ in $\Z_4$
+
+and
+$2\cdot 4 = 8 \equiv 0 \text{ (mod $8$)}\implies |2| = 4$ in $\Z_8$
+
+lcm$(4,4) = 4 \implies |\langle (1,2) \rangle| = 4$ in $\Z_4\times
+\Z_8$
+
+$|\langle (1,2) \rangle| = 4$  and $|\Z_4\times \Z_8| = 4\cdot 8
+\implies |(\Z_4\times \Z_8)/\langle (1,2) \rangle| = 8= 2^3$
+
+So, there are three possibilities $\Z_8$, $\Z_4\times \Z_2$, $\Z_2\times\Z_2\times\Z_2$.
+
+$ \langle (1,2) \rangle = \{(1,2),(2,4),(3,6),(0,0)\}$
+
+$4(1,0) = (0,0) \in \langle (1,2) \rangle \implies |(1,0)+\langle
+(1,2) \rangle| = 4$
+
+$8(0,1) = (0,0) \in \langle (1,2) \rangle \implies  |(0,1) + \langle
+(1,2) \rangle| = 8$
+
+Since $\Z_8$ is the only choice that has an element of order $8$, it
+follows that,$(\Z_4\times \Z_8)/\langle (1,2) \rangle \simeq \Z_8$
+$\quad \blacklozenge$
+
+\paragraph{8} $(\Z\times\Z\times\Z)/\langle (1,1,1)  \rangle$
+
+\uwave{slu.}
+
+$|(1,1,1)|=\aleph_0$ so we can't do simple counting arguments.
+
+However, even though we don't have the notion of dimension.
+We can see that $\langle (1,1,1) \rangle$ is the one dimensional span of the vector $(1,1,1)$
+in the $\Z^3$ vector space. Therefore, a reasonable assumption is that
+$(\Z\times\Z\times\Z)/\langle (1,1,1)  \rangle \simeq \Z^2$.
+
+$(\Z\times\Z\times \Z) = \langle (1,0,0),(1,1,0),(1,1,1) \rangle$
+\begin{align*}
+  \forall w = (x,y,z)\in \Z^3: (x, y, z) &= (x-z,y-z,0)+ z(1,1,1)\\
+                                         &= (x-y)(1,0,0) +
+                                           (y-z)(1,1,0) +z(1,1,1)\\
+                                         &= (x-y+y-z+z,y-z+z,z) = w
+\end{align*}
+
+$(\Z\times\Z\times \Z)/\langle (1,1,1) \rangle = \langle
+(1,0,0),(1,1,0),(1,1,1) \rangle/\langle (1,1,1) \rangle = \langle
+(1,0,0),(1,1,0) \rangle\simeq \Z^2 \quad \blacksquare$
+
+\paragraph{10} $(\Z\times \Z\times \Z_8)/\langle (0,4,0) \rangle$
+
+\uwave{slu.}
+
+$\langle (0,4,0) \rangle \simeq 4\Z \implies (\Z\times \Z\times
+\Z_8)/\langle (0,4,0) \rangle\simeq \Z\times \Z_4\times \Z_8 \quad
+\blacksquare$
+
+\paragraph{35} Let $\phi: G\rightarrow G'$ be a group homomorphism,
+and let $N$ be a normal subgroup of $G$. Show that $\phi[N]$ is normal
+subgroup of $\phi[G]$.
+
+\uwave{pf.}
+
+$\forall g\in G, n\in\N: gng^{-1} \in N \implies \phi(gng^{-1}) =
+\phi(g)\phi(n)\phi(g^{-1}) = \phi(g)\phi(n)\phi(g)^{-1} \in \phi[N].$
+
+But, $\forall g\in G, \phi(g)\in \phi[G]\land \forall n \in N,
+\phi(n)\in N \implies
+\phi[N]\trianglelefteq \phi[G]\quad \blacksquare$
+
+\subsection*{Additional Exercises}
+
+\paragraph{1} You showed on the last homework assignment that, for any $n ∈ \Z^+,SL_n(\R)$ is a normal
+subgroup of $GL_n(\R)$. To what group that we’ve seen in this class is $GL_n(\R)/SL_n(\R)$
+isomorphic? Prove your claim. [Note: Your answer shouldn’t depend on
+$n$.]
+
+\uwave{pf.}
+
+$SL_n(\R)\trianglelefteq GL_n(\R) \implies \forall G\in
+GL_n(\R), S\in SL_n(\R), GSG^{-1} \in$ $GL_n(\R)/SL_n(\R)$.
+
+$\det: GL_n(\R)\twoheadrightarrow \R^*$ is a surjective homomorphism.
+
+$\det(GSG^{-1}) = \det(G)\det(S)\det(G^{-1}) =
+\det(G)\det(G)^{-1}\det(S) = \det(S) = 1$.
+
+$\det(GS) = \det(G)\det(S) = \det(G) = r\in \R^*$.
+
+So, each coset of $GL_n(\R)/SL_n(\R)$, corresponds to the equivalence
+class of one $r\in\R^*$.
+
+$\implies $$GL_n(\R)/SL_n(\R)\simeq \R^* \quad \blacksquare$
+
+\paragraph{2} Let $G$ be a simple group and suppose $\phi$ $: G → G'$
+is a homomorphism. Prove that $\phi$ is
+either the trivial homomorphism or a one-to-one map.
+
+\uwave{pf.}
+
+Ker$(\phi) \trianglelefteq G$ and $G$ is a simple group.
+
+Note that Ker$(\phi)$ is always normal. Since $G$ is simple the only normal subgroups of
+$G$ are $\{e\}$ and $G$.
+
+If Ker$\phi = G$ then $\phi^{-1}[\{e'\}] = G$, so $\phi$ is the
+trivial homomorphism $G\rightarrow G'$.
+
+If Ker$\phi = \{e\}$ then $\phi^{-1}[\{e'\}] = \{e\}$, so $\phi$ is
+injective $\quad \blacksquare$
+
+\paragraph{3} Let $G$ be a group and $N$ a normal subgroup of $G$. Provide a bijection between the set of
+subgroups of $G/N$ and the set of subgroups of $G$ that contain $N$ (i.e. all $H ≤ G$ such that
+$N ⊆ H$). Prove that it is indeed a bijection.
+
+\uwave{pf. }
+
+By hint, consider  $\pi: N \subseteq H_\alpha\leq G = S\rightarrow
+\cup_{\alpha \in \Alpha} H_\alpha/N; H\mapsto H/N$
+
+$\pi[S] = \cup_{\alpha \in \Alpha} H_\alpha/N$, since for each $H_\beta/N$, there is a $H_\beta$ that gets mapped
+to $H_\beta/N$.
+
+$\{e\}= N/N$ is the identity element of $\cup H_\alpha/N$.
+
+Ker$(\pi)=\pi^{-1}[\{e\}] = \{H\in S| \pi(H) =\{e\}\}$
+
+Let $H\in S,$ then $\pi(H) = H/N = \{e\}  \iff H = N$
+
+$\implies$ Ker$(\pi) = N$
+
+So, $\pi$ is a bijection $\quad \blacksquare$
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

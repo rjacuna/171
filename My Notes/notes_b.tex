@@ -1,0 +1,124 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+%\usepackage{sagetex}
+
+\usepackage{euler}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+
+
+\usepackage[makeroom]{cancel}
+\usepackage{ulem}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\setmainfont[Mapping=tex-text]{Helvetica Neue LT Std 45 Light}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\A{\mathbb{A}}
+
+\usepackage{soul}
+\begin{document}
+
+\begin{center}
+  Chapter 1 --- Affine Algebraic Sets
+\end{center}\vspace{1.618em}
+
+My construction of the natural numbers follows Halmos. However, I
+claim $0 \notin \N$, minor modifications to the theory are required
+and are sketched as follows. I leave the details to the interested
+reader. I worked them out but my computer died so I lost the .tex
+files, now they only exist in .pdf form in an email I sent to one of
+my friends.
+
+Put, $\N := \{1, 2, 3, 4, 5, \dots\}$ the natural numbers. Define, $|\emptyset| :=
+0$. To count is to give an isomorphism between a set and a standard subset of the
+natural numbers. An isomorphism is a one to one and onto map that
+preserves the algebraic structure of the domain and the range. At the
+level of sets there is none, however we still like to talk about
+isomorphism to keep the language consistent.
+
+Standard subsets of $\N$ are sequences
+containing $1$, increasing by $1$ and ending in some element of
+$\N$. We call sets that cannot be put into one to one correspondence
+with a standard subset infinite. If we can put a set into one to one
+correspondence with $\N$ we say it is countable. The concept of
+cardinality is defined this way for finite and infinite sets. The
+cardinality of $\N$, is called $|\N|:= \aleph_0$ aleph null, or aleph
+naught. If a set is neither finite, nor countable, we say it is
+uncountable and it has higher cardinality.
+
+We define an order on $\N$, by the natural chain of standard sets,
+
+\[\{1\} \subset \{1,2\}\subset \{1,2,3\} \subset \dots \subset \N \]
+
+That is $\{1\} \subset \{1,2\}$, so $|\{1\}| < |\{1,2\}|$, and so
+on. In a weaker sense $\leq$ is defined by not requiring the left hand
+side to be a proper subset.
+
+The Cartesian product has two interpretations,
+
+\[\prod_{i \in I} X_i = \{(x_i)_{i \in I} | x_i\in X_i\} =
+  \{f:I \rightarrow \bigcup_{i\in I} X_i | (\forall i\in I)(f(i) \in X_i)\}\]
+
+
+First, it is the set of all tuples, where each tuple has size $|I|$, where
+$x_j$ is the $j^{th}$ coordinate of $(x_i)_{i\in I}$.
+
+Second, it is also the set of all maps $f$ such that $i\mapsto f(i)$. From the
+second interpretation we can recover the concept of coordinates by
+defining the projection maps,
+
+\[\pi_j : \prod_{i\in I} X_i \rightarrow X_j; f\mapsto f(j)\]
+
+Then, $\pi_k(f) = f(k)$ is the component of $f$ in the $k$ direction.
+
+When $X_i = X$ for all $i\in I$, and $I\subset \N$, with $n = |I|$, we
+call this the Cartesian power, and
+we write $X^n$.
+
+An operation on a set $S$ is a map $*:S^n\rightarrow S$. The size $n$
+of the input vector is the arity of the operation. We give special
+names to the first few naturals 1, 2, and 3-arity operations are
+called unary, binary, and ternary operations respectively. For
+operations with arity $n$ we say they are $n$-ary.
+
+Now, 0 arity operations are special, they are called nullary operations. First we need to give meaning to $S^0$. To
+accomplish this we set $I = \emptyset$. We define,
+
+\[X^0 := \prod_{i \in \emptyset} X = \{(x_i)_{i \in \emptyset} | x_i\in X\} =
+  \{f:\emptyset \rightarrow \bigcup_{i\in \emptyset} X_i | (\forall
+  i\in \emptyset)(f(i) \in X_i)\}\]
+
+In the first interpretation since there is nothing in the empty set,
+it follows
+$X^0 = \{()\}$, where $()$ has no coordinates, it is called the empty
+tuple.
+
+In the second interpretation, $\forall i\in \emptyset$ is unbound as it determines no values $i$. Furthermore,
+$\bigcup_{i\in \emptyset} X_i = \emptyset$ for the same reason. So,
+$X^0 = \{f:\emptyset\rightarrow \emptyset \}$.
+
+Recall from Na\"ive Set Theory (Halmos), that a function is a subset of the Cartesian
+product of its domain and range. $\emptyset \times \emptyset =
+\emptyset \implies X^0 = \{\emptyset \}$.
+
+In both cases $|X^0| = 1$. So, any nullary operation $S^0\rightarrow
+S$ is just an element of $S$. The set of all nullary operations on
+$S$, is in one to one correspondence with the elements of $S$.
+
+If $|I| \geq \aleph_0$, then we need to accept the Axiom of Choice in
+order to ensure that the Cartesian product is not empty.
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

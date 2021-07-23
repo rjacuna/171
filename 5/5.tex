@@ -1,0 +1,497 @@
+\documentclass{article}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{sagetex}
+
+\usepackage{euler}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{unicode-math}
+
+
+\usepackage[makeroom]{cancel}
+\usepackage{ulem}
+
+\setlength\parindent{0em}
+\setlength\parskip{0.618em}
+\usepackage[a4paper,lmargin=1in,rmargin=1in,tmargin=1in,bmargin=1in]{geometry}
+
+\setmainfont[Mapping=tex-text]{Helvetica Neue LT Std 45 Light}
+
+\newcommand\N{\mathbb{N}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\R{\mathbb{R}}
+\newcommand\C{\mathbb{C}}
+\newcommand\A{\mathbb{A}}
+
+\begin{document}
+
+\begin{center}
+  171 --- 5
+
+  RJ Acuna
+
+  (862079740)
+\end{center}\vspace{1.618em}
+
+
+\subsection*{Section 10}
+
+\paragraph{2} Find all the cosets of the subgroup $4\Z$ of $2\Z$.
+
+\uwave{slu.}
+
+First notice that since $2\Z$ is abelian, the left cosets
+of $4\Z$ are equal to the right cosets of $4\Z$.
+
+$0,2 \in 2\Z \implies$
+$4\Z + 0 = \{\dots,-4, 0, 4, \dots\} \land 4\Z + 2 = \{\dots, -6 ,-2 , 2, 6,\dots\}$
+
+$4\Z + 0 \cup 4\Z + 2  = 2\Z$
+
+So, all the cosets of $4\Z\leq 2\Z$, are $4\Z + 0$ and $4\Z + 2 \quad \blacklozenge$
+
+\paragraph{4} Find all the cosets of the subgroup $\langle 4 \rangle$
+of $\Z_{12}$.
+
+\uwave{slu.}
+
+$\langle 4 \rangle = \{0,4,8\}$ and $\Z_{12} =
+\{0,1,2,3,4,5,6,7,8,9,10,11\}$
+
+$\Z_{12}$ is abelian, so left cosets are right cosets.
+
+$\langle 4 \rangle + 0 = \{0, 4, 8\}$
+
+$\langle 4 \rangle + 1 = \{1,5,9\}$
+
+$\langle 4 \rangle + 2 = \{2,6,10\}$
+
+$\langle 4 \rangle + 3 = \{3,7,11\}$,
+
+
+$\Z_{12} = \bigcup_{i=0}^3 \langle  4 \rangle + i$
+
+So, all the cosets of $\langle 4 \rangle \leq \Z_{12}$ are $\langle 4
+\rangle + 0, \langle 4 \rangle + 1,\langle 4 \rangle + 2,\langle 4
+\rangle + 3 \quad \blacklozenge$
+
+
+
+\paragraph{6} Find all the left cosets of the subgroup
+$\{\rho_0,\mu_2\}$ of the group $D_4$ given by table $8.12.$
+
+\uwave{slu.}
+
+Since $\rho_0$ is the identity element of $D_4$, $\forall x \in D_4 x
+\rho_0 = x$.
+
+Since multiplication is given by a table, multiplying on the left to
+$\mu_2$ is given by the column labeled  $\mu_2$.
+
+So, we can just read the left cosets from the table by taking the
+$\rho_0$, and $\mu_0$ columns. Now, we can see that $2\cdot 4 =8$, so
+the first $4$ rows exhaust $D_4$. Also, considering the other $4$
+rows reverses the order, but they're the same $4$ cosets as the
+previous $4$ rows.
+
+Therefore,
+$\{\rho_0,\mu_2\},\{\rho_1,\delta_2\},\{\rho_2,\mu_1\},\{\rho_3,\delta_1\}$
+are all the left cosets of $\{\rho_0,\mu_2\}\leq D_4\quad \blacklozenge$
+
+
+\paragraph{12} Find the index of $\langle 3 \rangle$ in the group
+$\Z_24$
+
+\uwave{slu.} $\langle 3 \rangle = \{0,3,6,9,12,15,18,21\} \implies | \langle
+3\rangle| = 8 \land |\Z_{24}| = 24  \implies (\Z_{24}:\langle 3
+\rangle) =\frac{24}{8} = 3\quad \blacklozenge$
+
+\newpage
+\paragraph{16} Let $\mu = (1,2,4,5)(3,6)$ in $S_6$. Find the index of
+$\langle \mu \rangle$ in $S_6$.
+
+
+\uwave{slu.}
+
+$\mu$ is a product of disjoint cycles.
+
+The square of a transposition is the identity.
+
+Let $\tau = (3,6)$ .So $\tau^2 = \iota$.
+
+Write $\sigma = (1,2,4,5) = \begin{pmatrix}1&2&3&4&5&6\\
+  2&4&3&5&1&6\end{pmatrix}.$
+
+$\begin{bmatrix}
+   \iota& 1&2&3&4&5&6\\
+    \sigma& 2&4&3&5&1&6 \\
+  \sigma^2& 4&5&3&1&2&6 \\
+  \sigma^3& 5&1&3&2&4&6 \\
+  \sigma^4& 1&2&3&4&5&6
+\end{bmatrix}$
+
+Then $\sigma^2 = (1,4)(5,2)$, $\sigma^3 = (1,5,4,2)$, and $\sigma^3=\iota.$
+
+So,$\mu = \sigma\tau$ given that disjoint cycles commute, we can write
+$\mu^n = \sigma^n\tau^n$ for $n\in \Z$. Then, $$\mu^2 = \sigma^2\tau^2 = \sigma^2\iota =
+\sigma^2, \mu^3 = \sigma^3\tau^3 = \iota^2\tau = \tau, \mu^4 =
+\sigma^4\tau^4 = \iota\sigma\iota^2 = \sigma, \mu^5 = \sigma^5\tau^5
+= \iota\sigma^2\iota\tau, \mu^6 = \sigma^6\tau^6 = \iota.$$
+
+So, $|\langle  \mu\rangle| = 6$, and we have that $|S_6| = 6!,$ so
+$(S_6:\langle \mu \rangle) = \frac{6!}{6} = 5!$
+
+
+\paragraph{28} Let $H$ be a subgroup of $G$ such that $g^{-1}hg\in H$
+for all $g \in G$ and  all $h\in H$. Show that every left coset $gH$
+is the same as the right coset $Hg$.
+
+\uwave{pf.}
+
+$g^{-1}hg \in H \forall g\in G$ and $\forall h \in H$.
+
+$g \in G \land g^{-1}hg\in H \implies gg^{-1}hg = ehg = hg \in gH$,
+but notice $hg \in Hg \implies gH \subset Hg$.
+
+$g^{-1}\in G \implies (g^{-1})^{-1}hg^{-1} = ghg^{-1}\in H$ $\forall h\in H$.
+
+$g\in G \land ghg^{-1} \in H \implies ghg^{-1}g = ghe = gh\in Hg
+\implies Hg \subset gH$.
+
+$gH \subset Hg \land Hg \subset gH \implies Hg = gH \quad \blacksquare$
+
+\paragraph{34} Let $G$ be a group of order $pq$, where $p$ and $q$ are
+prime numbers. Show that every proper subgroup of $G$ is cyclic.
+
+\uwave{pf.}
+
+Since, the only divisors of $pq$ are $1,p,$ and $q$. The Lagrange's theorem
+gives us that, the order of any subgroup of $G$, must divide the order
+of $G$. Therfore, if $H$ is a subgroup of $G$, it must have order
+$1,p$ or $q$. Any, subgroup of order $1$ is the trivial subgroup. And
+any subgroup of prime order is cyclic, so the conclusion follows even
+if $G$ has no proper subgroups $\blacksquare$
+
+\newpage
+\paragraph{39} Show that if $H$ is a subgroup of index $2$ in a finite
+group $G$, then every left coset of $H$ is also a right coset of $H$.
+
+\uwave{pf.}
+
+Since left cosets partition $G$ into sets of equal
+cardinality, and $(G:H) = 2$, so there are only two distinct left cosets of $H$.
+
+Right cosets  also partition $G$ into sets of equal
+cardinality, and $(G:H) = 2$ for right cosets too, so there are only
+two distinct right cosets of $H$.
+
+Let $e$ be the identity of $G$, then $eH = H = He$, by the properties
+of the identity. So, $H$ is both a left and a right coset of $H$. Let
+$aH$,and $bH$, be the other distinct left and right cosets of $H$.
+
+Since $G$ is partitioned by the left cosets $G = H \cup aH$, and
+$H\cap aH = \emptyset$. Similarly, $G = H \cup Hb,$ and $H\cap Hb
+=\emptyset$. Therefore, $  aH =G\H = Hb$. So every left coset of $H$
+is also a right coset of $H \quad \blacksquare$
+
+\paragraph{40} Show that if a group $G$ with identity $e$ has finite
+order $n$, then $a^n = e$ for all $a \in G.$
+
+\uwave{pf.}
+
+If $G$ is of finite order $n$, then the order of an element of $G$,
+divides $n$.
+
+Let $|\langle a \rangle| = m \implies n = mk$ some $k\in\Z$.
+So, $a^n = (a^m)^k = e^k = e\quad \blacksquare$
+
+\subsection*{Section 11}
+
+In Excercises $3$ through $7$, find the order of the given element of
+the direct product.
+
+\paragraph{5} $(8,10)$ in $\Z_{12}\times\Z_{18}$
+\uwave{slu.}
+$$ 8 = 2^3\land 12 = 2^2\cdot3 \implies \text{gcd}(8,12) = 4 \land
+\frac{12}{4} = 3 \implies |8|= 3 \text{ in }\Z{12}.$$
+
+$$ 10 = 2\cdot 5\land 18 = 2\cdot3^2 \implies \text{gcd}(10, 18) = 2 \land
+\frac{18}{2} = 9 \implies |10|= 9 \text{ in }\Z{18}.$$
+
+$$9 = 3^2 \implies \text{lcm}(3,9)= 9 \implies |(8,10)| = 9 \text{ in
+}\Z_{12}\times\Z_{18}\quad \blacklozenge$$
+
+\paragraph{8} What is the largest order among the orders of all the
+cyclic subgroups of $\Z_6\times\Z_8$? of $\Z_{12}\times\Z_{15}$?
+
+\uwave{slu.}
+
+$|\Z_6\times\Z_8| = |\Z_6||\Z_8| = 6\cdot 8 = 48$. The divisors of $48$ are,
+$1,2,3,4,6,8,12,16,24,$ and $48$.
+
+By $11.16$, $\Z_{6}\times\Z_{8}$ is abelian and finite so it has subgroups of orders $1,2,3,4,6,8,12,16,24,48$.
+
+By $11.17$, we have the criterion that a group of order $m$ is cyclic
+if $m$ is square free.
+
+$48 = 2^4\cdot 3, 24 = 2^3\cdot 3, 16 = 2^4, 12 = 2^2\cdot 3, 8 = 2^3,
+6 = 2\cdot 3$.
+
+$1 < 2 < 3 < 4 < 6 \implies 6$ is the largest order of all the cyclic
+subgroups of $\Z_6\times \Z_8.$
+
+$|\Z_{12}\times\Z_{15}| = |\Z_{12}||\Z_{15}| = 12\cdot 15 = 180$. The divisors of $180$ are,
+$2,3,4,5,6,9,10,12,15,18,20,30,36,45,90,$ and $180$. Which are the
+orders of the subgroups of $\Z_{12}\times\Z_{15}.$
+
+$4 = 2^2$ divides $180,90,36,20,12$ and $4$. So, now consider just
+$2,3,5,6,9,10,15,18,30,45$.
+
+$9 = 3^2$ divides $45,18,$ and $9$. So, now consider just
+$2,3,5,6,10,15,30$.
+
+$30 = 3\cdot 2\cdot 5$, so it's square free and is larger than
+everything else. So, $30$ is the largest order of all the cyclic
+subgroups of $\Z_{12}\times \Z_{15}\quad \blacklozenge$
+
+
+
+\paragraph{10} Find all the proper nontrivial subgroups of
+$\Z_2\times\Z_2\times\Z_2$
+
+\uwave{slu.}
+$$\langle  (1,0,0)\rangle, \langle  (0,1,0)\rangle, \langle
+(0,0,1)\rangle, \langle (1,1,0)\rangle, \langle (0,1,1)\rangle,\langle (1,0,1) \rangle \quad \blacklozenge$$
+
+\paragraph{11} Find all the subgroups of $\Z_2\times \Z_4$ of order
+$4$.
+\uwave{slu.}
+$|\Z_2\times \Z_4|= 8$, $4|8$, so there are subgroups of order $4$.
+
+gcd$(0,2) = 2$, and $\frac{2}{2} = 1 \implies |0| = 1$  in $\Z_2$.
+
+gcd$(1,2) = 1$, and $\frac{2}{1} = 2 \implies |1| = 2$  in $\Z_2$.
+
+gcd$(0,4) = 4$, and $\frac{4}{4} = 1 \implies |0| = 1$  in $\Z_4$.
+
+gcd$(1,4) = 1$, and $\frac{4}{1} = 4 \implies |1| = 4$  in $\Z_4$.
+
+gcd$(2,4) = 2$, and $\frac{4}{2} = 2 \implies |2| = 2$  in $\Z_4$.
+
+gcd$(3,4) = 1$, and $\frac{4}{1} = 4 \implies |3| = 4$  in $\Z_4$.
+
+lcm$(1,1) = 1$, lcm$(1,2) = 2$,lcm$(1,4) = 4$. So, $\langle (0,1)
+\rangle,$ and $\langle (0,3) \rangle$ are subgroups of order $4$.
+
+lcm$(2,1) = 2$, lcm$(2,2) = 2$,lcm$(2,4) = 4$. So, $\langle (1,1) \rangle$, and $\langle (1,3) \rangle$ are
+subgroups of order $4$. This exhausts the list$\quad \blacklozenge$
+
+\paragraph{12} Find all the subgroups of $\Z_2\times\Z_2 \times\Z_4$
+that are isomorphic to the Klein $4$-group
+
+\uwave{slu.}
+
+The Klein $4-$group is isomorphic to $\Z_2\times\Z_2$. So, clearly
+$\Z_2\times\Z_2 \times\{0\}$ is one of them.
+
+By the previous computations. $|0| = 1,$ and $|1| = 2$ in $\Z_2$. And,
+$|0| = 1, |1| = 4,|2|=2,|3|=4$  in $\Z_4$. So the orders are $1,$ or
+$2$ for $\Z_2$, and $1,2,$or $4$ for $\Z_4$
+
+The only element of order $2$ in $\Z_4$ is $2$, so the other two are,
+$$\Z_2\times \{0\} \times \langle 2 \rangle\text{ and }\{0\}\times
+\Z_2\times \langle 2 \rangle\quad \blacklozenge$$
+
+
+
+\subsection*{Additional Excercises}
+
+Given a group $G$ and some subset $A\subseteq G$, recall that we
+defined
+
+$$\langle A \rangle := \bigcap_{A\subseteq H\leq G} H$$
+
+In words $\langle A\rangle$ is the intersection of all subgroups of
+$G$ that
+contain $A$.
+
+\paragraph{1**} We claimed in class that $\langle{A}  \rangle$ is “the smallest subgroup of $G$ containing $A$” in the following
+sense:
+
+$ A ⊆ \langle A\rangle ≤ G$ and if $A ⊆ K ≤ G$, then $\langle A\rangle ≤ K$. Prove this claim.
+
+\uwave{pf.}
+
+$\langle A \rangle$ is a group, so it is closed under the group
+operation. $\langle A \rangle\leq G \implies e \in \langle A
+\rangle$. $K\leq G \implies e\in K$. So, the identity element of
+$\langle A\rangle$
+is the identity element of $K$. Now, $\langle A \rangle$ is a group so
+it has inverses. So, $\langle A \rangle \leq K\quad \blacklozenge$
+\newpage
+\paragraph{2} Verify that $\langle (1,2),(2,3) \rangle = S_3$  by
+expressing every non-identity element of $S_3$ as a product whose
+factors are each either $(1,2)$ or $(2,3)$.
+
+\uwave{pf.}
+\begin{align*}
+S_3 &= \left\{
+  \iota, \begin{pmatrix}1&2&3\\2&1&3 \end{pmatrix},\begin{pmatrix}1&2&3\\1&3&2 \end{pmatrix},
+                                                                              \begin{pmatrix}1&2&3\\3&2&1 \end{pmatrix}, \begin{pmatrix}1&2&3\\2&3&1 \end{pmatrix},\begin{pmatrix}1&2&3\\3&1&2 \end{pmatrix}\right\}\\
+    &= \left\{
+  \iota, (1,2),(2,3),(1,3), (1,2,3), (3,1,2)\right\}
+\end{align*}
+
+Let $\tau_1 = (1,2)$, and $\tau_2 = (2,3).$
+
+$\begin{bmatrix}
+  \iota& 1&2&3\\
+  \tau_1& 2&1&3\\
+  \tau_2& 1&3&2\\ \tau_2\tau_1&
+         3&1&2\\ \tau_1\tau_2&
+         2&3&1\\ \tau_2\tau_1\tau_2&
+         3&2&1
+ \end{bmatrix}$
+
+ $\tau_2\tau_1 = (1,3,2)$,$\tau_1\tau_2 = (1,2,3)$, and
+ $\tau_2\tau_1\tau_2 = (1,3)\quad \blacklozenge$
+
+\paragraph{3} Consider $H = \langle (2,4), (1,2,3,4) \rangle \leq
+S_4$.
+
+(a) Find $7$ distinct non-identity elements of $H$ and express them as
+products of disjoint cycles.
+
+\uwave{slu.}
+
+Let, $\tau = (2,4)= \begin{pmatrix}1&2&3&4\\1&4&3&2\end{pmatrix}, \mu
+= (1,2,3,4) = \begin{pmatrix}1&2&3&4 \\ 2&3&4&1\end{pmatrix}$. then
+
+$\begin{bmatrix}
+  \iota& 1&2&3&4\\
+  \mu  & 2&3&4&1\\
+  \mu^2& 3&4&1&2\\
+  \mu^3& 4&1&2&3\\
+  \iota = \mu^4& 1&2&3&4
+\end{bmatrix}$
+
+$\begin{bmatrix}
+    \iota& 1&2&3&4\\
+    \tau & 1&4&3&2\\
+    \mu  & 2&3&4&1\\
+  \tau\mu& 4&3&2&1\\
+    \mu^2& 3&4&1&2\\
+\tau\mu^2& 3&2&1&4\\
+    \mu^3& 4&1&2&3\\
+\tau\mu^3& 2&1&4&3
+\end{bmatrix}$
+
+Since $\tau^2 = \iota$, we only count $\tau$ once.
+
+Now, $\mu,\mu^2,$ and $\mu^3$ give $3$ more.
+And, $\tau\mu,\tau\mu^2,$ and $\tau\mu^3$ give the other $3$ needed for
+$6$.
+
+So, we only need to express them as disjoint cycles,
+$$(2,4),(1,2,3,4),(1,3)(2,4),(1,4,3,2),(1,4)(2,3),(1,3),(1,2)(3,4)$$
+
+
+\newpage
+(b)* Prove that $H$ has exactly $8$ elements. To what group that we've
+previously seen is $H$ isomorphic?
+
+\uwave{pf.}
+
+Since, $\langle \mu \rangle \leq H$ and $|\langle \mu \rangle| =
+4 \implies |H| = 4k$, for some $k \in \N.$
+
+Similarly, $|\langle \tau \rangle| = 2 \implies |H| = 2m$
+some $m\in \N$.
+
+Since, $\langle \tau \rangle\cap \langle \mu \rangle = \{0\}$, and
+since the left cosets of $\langle  \mu\rangle$ partition
+$H$, and the right cosets of $\langle  \tau\rangle$ partition
+$H$. Given that all the elements of $H$ are products of $\mu$,and
+$\tau$, multiplying $\langle \mu \rangle$ on the left by some product
+$\sigma_l\mu^n$, will absorb the $\mu^n$ part and it will be like
+multiplying by some $\sigma_l$, likewise multiplying $\langle \tau
+\rangle$ on the right by some $\tau^n\sigma_r$ will yield a
+multiplication by $\sigma_r$ on the right. The previous computation
+shows that the collection of elements of the left cosets of $\langle
+\mu \rangle$ are the same as the collection of elements of the right
+cosets of $\langle \tau \rangle$. It
+follows, that $m=4,$ and $k = 2.$ It is not too hard to see that
+$\Z_2\times \Z_4 \simeq H$ $\quad \blacksquare$
+
+
+\paragraph{4**} Fix a finite set $A$ and let $\mathcal{P} =
+\{P_1,P_2,\dots,P_k\}$ be a partition of $A$.
+
+Set $H_{\mathcal{P}} := \{\sigma \in S_A| \sigma[P_i] \subset P_i\text{ for } i= 1,2,\dots,k\}.$
+
+(a) Prove that $H_{\mathcal{P}}$ is a subgroup of $S_A$ and
+\[H_{\mathcal{P}} = \prod_{i=1}^k S_{P_i} .\]
+
+\uwave{pf.}
+
+$\iota[P_i] = P_i \implies \iota \in H_{\mathcal{P}}$.
+
+If $\sigma[P_i]\subset P_i$, then $\sigma^{-1}\sigma[P_i] = P_i$
+for some $i$.
+
+If $\sigma[P_i] \subset P_i$ and $\tau[P_i] \subset P_i$, then $\sigma\tau[P_i]\subset
+P_i$ for some $i$.
+
+So, $H_{\mathcal{P}}\leq S_A$.
+
+Let $\phi:S_A \rightarrow \prod_{i=1}^k P_i; \sigma\mapsto
+(\sigma|_{P_1}, \sigma|_{P_2}, \dots, \sigma|_{P_k})$
+
+
+Then for each $\sigma|_{P_i}$, define $\sigma_{i}^{\prime}: P_i
+\hookrightarrow{} S_A; \sigma_i^\prime
+(x)= \begin{cases}\sigma|_{P_i}(x), x \in P_i\\ x\quad\enskip\quad, x\not\in P_i\end{cases}$
+
+
+Then $\phi^{-1}: \prod_{i=1}^k P_i \rightarrow S_A; (\sigma|_{P_1},
+\sigma|_{P_2}, \dots, \sigma|_{P_k}) \mapsto \sigma_1^\prime \circ \sigma_2^\prime \circ \cdots
+\circ \sigma_k^\prime = \sigma$, which
+works because $\mathcal{P}$ is a partition.
+
+Now $\phi(\sigma\tau) = (\sigma\tau|_{P_1}
+\sigma\tau|_{P_2}, \dots, \sigma\tau|_{P_k})$
+
+$= (\sigma|_{P_1}\tau|_{P_1},
+\sigma|_{P_2}\tau|_{P_2}, \dots, \sigma|_{P_k}\tau|_{P_k}) =(\sigma|_{P_1},
+\sigma|_{P_2}, \dots, \sigma|_{P_k}) (\tau|_{P_1},
+\tau|_{P_2}, \dots, \tau|_{P_k}) = \phi(\sigma)\phi(\tau)$
+
+So, $H_{\mathcal{P}} = \prod_{i=1}^k P_i \quad \blacksquare$
+
+(b) Let $\sigma \in S_A$ and let $\mathcal{O}$ be the set of orbits of
+$\sigma.$ Prove that $\sigma \in H_{\mathcal{O}}.$
+
+\uwave{pf.}
+The orbits of $\sigma$ are disjoint. $X\in \mathcal O \implies
+\sigma[X] = X \implies  \sigma \in H_{\mathcal{O}}.$
+
+(c) Let $\sigma \in S_A$ and prove that $|\sigma|$ is the least common
+multiple of the sizes of the orbits of $\sigma$.
+
+\uwave{pf.}
+$\mathcal{O}$ partitions $S_A$. So, $S_A = \prod_{X\in \mathcal{O}}
+X,$  so $|\sigma| =$ lcm$(|X|)_{X\in \mathcal{O}}$, meaning take the
+least common multiple of the orders of all the orbits $X \in \mathcal{O}.$ This
+works because, $S_A$ is equal to the direct product, and the order of
+an element in the direct product is equal to the lcm of the orders of
+the components. $\quad \blacksquare$
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
